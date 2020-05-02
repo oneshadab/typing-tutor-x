@@ -1,0 +1,58 @@
+body{
+    padding: 0;
+    margin: 0;
+    background-color: #FFE7F3;
+    font-family: Times New Roman, Times, serif;
+}
+#btn-reset {
+    font-family: Verdana,sans-serif;
+    height: 35px;
+    background-color: #DECDFF;
+}
+#typing-field {
+    white-space: nowrap;
+    resize: none;
+    padding: 10px 20px;
+    margin: 10px 20px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    border-top: 1px solid #575757;
+    height: 50px;
+    border-right: 1px solid #6b7a89;
+    border-bottom: 1px solid #70869b;
+    border-left: 1px solid #525a62;
+    line-height: 1em;
+
+    color: #333;
+
+}
+#current-text{
+    margin-left: 18%;
+}
+@media  (max-width: 1399px) {
+    .default-sized-text {
+
+        font-size: 24px;
+    }
+
+    #typing-field {
+        width: 60%;
+    }
+
+}
+
+@media  (min-width: 1400px) {
+    .default-sized-text {
+        font-size: 28px;
+    }
+
+    #typing-field {
+        width: 50%;
+
+    }
+
+    #current-text{
+        margin-left: 24%;
+    }
+
+}
