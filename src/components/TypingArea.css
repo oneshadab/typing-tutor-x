@@ -1,14 +1,20 @@
-body{
-    padding: 0;
-    margin: 0;
-    background-color: #FFE7F3;
-    font-family: Times New Roman, Times, serif;
+body {
+    background: linear-gradient(90deg, #FFE7F3 19px, transparent 1%) center,
+    linear-gradient(#FFE7F3 19px, transparent 1%) center, white;
+    background-size: 22px 22px;
+
+    /*padding: 0;*/
+    /*margin: 0;*/
+    /*background-color: #FFE7F3;*/
+    /*font-family: Times New Roman, Times, serif;*/
 }
+
 #btn-reset {
-    font-family: Verdana,sans-serif;
+    font-family: Verdana, sans-serif;
     height: 35px;
     background-color: #DECDFF;
 }
+
 #typing-field {
     white-space: nowrap;
     resize: none;
@@ -16,20 +22,32 @@ body{
     margin: 10px 20px;
     overflow-x: hidden;
     overflow-y: hidden;
-    border-top: 1px solid #575757;
+
     height: 50px;
+    border-top: 1px solid #575757;
     border-right: 1px solid #6b7a89;
     border-bottom: 1px solid #70869b;
     border-left: 1px solid #525a62;
+
     line-height: 1em;
+    border-radius: 25px;
 
     color: #333;
 
 }
-#current-text{
+
+#typing-field:focus {
+    outline: none;
+
+}
+
+#current-text {
     margin-left: 18%;
 }
-@media  (max-width: 1399px) {
+
+
+
+@media (max-width: 1399px) {
     .default-sized-text {
 
         font-size: 24px;
@@ -38,10 +56,18 @@ body{
     #typing-field {
         width: 60%;
     }
+    .custom-placeholder::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+        color: pink;
+        font-size: 19px;
+    }
+    .custom-placeholder::-moz-placeholder { /* Firefox 19+ */
+        color: pink;
+        font-size: 19px;
+    }
 
 }
 
-@media  (min-width: 1400px) {
+@media (min-width: 1400px) {
     .default-sized-text {
         font-size: 28px;
     }
@@ -50,9 +76,28 @@ body{
         width: 50%;
 
     }
+    #typing-field {
+        width: 50%;
 
-    #current-text{
+    }
+
+    #current-text {
         margin-left: 24%;
+    }
+
+    #btn-reset {
+        font-family: Verdana, sans-serif;
+        height: 50px;
+        padding: 10px;
+        background-color: #DECDFF;
+    }
+    .custom-placeholder::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+        color: pink;
+        font-size: 19px;
+    }
+    .custom-placeholder::-moz-placeholder { /* Firefox 19+ */
+        color: pink;
+        font-size: 19px;
     }
 
 }
