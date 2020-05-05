@@ -36,7 +36,9 @@ body {
     color: #333;
 
 }
-
+.red-text{
+    color: red;
+}
 #typing-field:focus {
     outline: none;
 
@@ -45,7 +47,12 @@ body {
 #current-text {
     /*margin-left: 18%;*/
 }
-
+#credit{
+    position: absolute;
+    bottom: 8px;
+    right: 16px;
+    font-size: 13px;
+}
 
 
 @media (max-width: 1399px) {
@@ -60,10 +67,13 @@ body {
     .custom-placeholder::-webkit-input-placeholder { /* Chrome/Opera/Safari */
         color: pink;
         font-size: 19px;
+        text-align: center;
     }
     .custom-placeholder::-moz-placeholder { /* Firefox 19+ */
         color: pink;
         font-size: 19px;
+        text-align: center;
+
     }
 
 }

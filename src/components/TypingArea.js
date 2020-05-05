@@ -1,33 +1,50 @@
 import React from "react";
 import './TypingArea.css'
+import './AnimatedButton.scss'
 import SentenceBar from "./SentenceBar/SentenceBar";
+import paragraphs from './sentences';
+import Timer from './Timer/Timer';
 import axios from "axios";
+let shuffle = require('shuffle-array');
+var paragraph;
+
 
 class TypingArea extends React.Component {
     constructor(props) {
         super(props);
+        if(paragraphs["all_sentences"][0]["paragraph"]["shuffle"])
+        {
+            this.paragraph = shuffle(paragraphs["all_sentences"][0]["paragraph"])
+        }
+        else
+        {
+            this.paragraph = paragraphs["all_sentences"][0]["paragraph"]
+        }
+
+
         this.state = {
             current_index: 0,
             timer_started: false,
             is_input_disabled: false,
-            all_sentences: [
-            ],
+            all_sentences: this.paragraph,
             typed_sentence: ''
         };
         this.initial_state = this.state;
 
     }
 
-    componentDidMount() {
-        console.log('mounted');
-        axios.get('http://localhost:3000/sentences.json').then(
-            res => {
-                const all_sentences = res.data['all_sentences'];
-                console.log(res.data);
-                this.setState({all_sentences: all_sentences})
-            }
-        )
-    };
+
+    //
+    // componentDidMount() {
+    //     console.log('mounted');
+    //     axios.get('http://localhost:3000/sentences.json').then(
+    //         res => {
+    //             const all_sentences = res.data['all_sentences'];
+    //             console.log(res.data);
+    //             this.setState({all_sentences: all_sentences})
+    //         }
+    //     )
+    // };
 
 
     handleChange = (event) => {
@@ -43,7 +60,7 @@ class TypingArea extends React.Component {
         console.log(ci);
 
         if (ci < this.state.all_sentences.length) {
-            if (this.state.all_sentences[ci]===ct && ct.length > 0) {
+            if (this.state.all_sentences[ci] === ct && ct.length > 0) {
                 // event.target.value = "";
                 this.setState({current_index: ci + 1})
                 this.setState({typed_sentence: ""})
@@ -93,7 +110,6 @@ class TypingArea extends React.Component {
     resetPage = (event) => {
         if (window.confirm("Restart the test")) {
             this.setState(this.initial_state)
-            this.componentDidMount()
         }
 
 
@@ -108,10 +124,11 @@ class TypingArea extends React.Component {
                         <div style={{
                             minHeight: '60px'
                         }} className={"default-sized-text"}>
+                            {/*<Timer val={60}/>*/}
                         </div>
                         <SentenceBar sentence={this.state.all_sentences[this.state.current_index] || ""}
-                                     written= {this.state.typed_sentence||""}/>
-                        <div className={"text-center"}>
+                                     written={this.state.typed_sentence || ""}/>
+                        <div className={"text-center mt-3"}>
                             <input className={"default-sized-text custom-placeholder"}
                                    placeholder={"Click Here And Start To Type"}
                                    disabled={this.state.is_input_disabled}
@@ -121,14 +138,21 @@ class TypingArea extends React.Component {
                                    onChange={(event) => this.handleChange(event)}/>
 
                         </div>
-                        <div className={"text-center"}>
-                            <button onClick={this.resetPage} id={"btn-reset"} className={"btn"}>RESET</button>
+                        <div className={"text-center mt-4"}>
+                            <button onClick={this.resetPage}
+                                    className="btn-reset draw-border">
+                                Reset Test
+                            </button>
+                            {/*<button onClick={this.resetPage} id={"btn-reset"} className={"btn"}>RESET</button>*/}
 
                         </div>
 
 
                     </div>
                 </div>
+            </div>
+            <div id={"credit"} className={"font-weight-bold"}>
+                Made With <span className={"red-text"}>❤</span> by <a target={"blank"} href={"https://github.com/antorkhan"}>Antor</a>
             </div>
         </div>;
     }
