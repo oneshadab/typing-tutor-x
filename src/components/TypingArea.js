@@ -113,7 +113,7 @@ class TypingArea extends React.Component {
                                      written= {this.state.typed_sentence||""}/>
                         <div className={"text-center"}>
                             <input className={"default-sized-text custom-placeholder"}
-                                   placeholder={"Type & Press Enter"}
+                                   placeholder={"Click Here And Start To Type"}
                                    disabled={this.state.is_input_disabled}
                                    id={"typing-field"}
                                    value={this.state.typed_sentence}

@@ -24,10 +24,11 @@ body {
     overflow-y: hidden;
 
     height: 50px;
-    border-top: 1px solid #575757;
-    border-right: 1px solid #6b7a89;
-    border-bottom: 1px solid #70869b;
-    border-left: 1px solid #525a62;
+
+    border-top: 1px solid lightpink;
+    border-right: 1px solid lightpink;
+    border-bottom: 1px solid lightpink;
+    border-left: 1px solid lightpink;
 
     line-height: 1em;
     border-radius: 25px;
@@ -42,7 +43,7 @@ body {
 }
 
 #current-text {
-    margin-left: 18%;
+    /*margin-left: 18%;*/
 }
 
 
@@ -82,22 +83,37 @@ body {
     }
 
     #current-text {
-        margin-left: 24%;
+        /*margin-left: 24%;*/
     }
 
     #btn-reset {
-        font-family: Verdana, sans-serif;
-        height: 50px;
-        padding: 10px;
-        background-color: #DECDFF;
+        /*font-family: Verdana, sans-serif;*/
+        /*height: 50px;*/
+        /*padding: 10px;*/
+        /*background-color: #DECDFF;*/
+
+        background: none;
+        border: none;
+        cursor: pointer;
+        line-height: 1.5;
+        font: 700 1.2rem 'Roboto Slab', sans-serif;
+        padding: 1em 2em;
+        letter-spacing: 0.05rem;
+        box-shadow: inset 0 0 0 4px #58afd1;
+        color: #58afd1;
+        -webkit-transition: color 0.25s 0.0833333333s;
+        transition: color 0.25s 0.0833333333s;
+        position: relative;
     }
     .custom-placeholder::-webkit-input-placeholder { /* Chrome/Opera/Safari */
         color: pink;
         font-size: 19px;
+        text-align: center;
     }
     .custom-placeholder::-moz-placeholder { /* Firefox 19+ */
         color: pink;
         font-size: 19px;
+        text-align: center;
     }
 
 }

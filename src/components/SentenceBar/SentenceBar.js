@@ -21,8 +21,8 @@ class SentenceBar extends React.Component {
     }
 
     render() {
-        return <div>
-            <div id={"current-text"} className={"default-sized-text"}>
+        return <div className={""}>
+            <div id={"current-text"} className={"default-sized-text sentence-bar text-center"}>
                 {this.renderCharSpanWise(this.props.sentence, this.props.written)}
             </div>
 
