@@ -116,26 +116,30 @@ class TypingArea extends React.Component {
 
     };
 
-    dHolder = function(id, texts, interval) {
-        var change, index, slicer, timeq;
-        index = 0;
-        slicer = 0;
-        return timeq = window.setTimeout(change = function() {
-            var delay, timerId;
-            delay = interval;
-            document.getElementById(id).placeholder = texts[index].slice(0, slicer) + '|';
-            if (slicer === texts[index].length) {
-                slicer = 0;
-                index += 1;
-                delay = 1000;
-                if (index === texts.length) {
-                    index = 0;
-                }
-            } else {
-                slicer += 1;
-            }
-            return timerId = window.setTimeout(change, delay);
-        }, interval);
+    dHolder = function(elementId, lines, defaultDelay) {
+        let currentLine = 0, sliceSize = 0, lineChangeDelay = 1000;
+
+        runForever(change);
+
+        function change() {
+          const placeholder = lines[currentLine].slice(0, sliceSize);
+          const element = document.getElementById(elementId);
+          element.placeholder = placeholder + "|";
+
+          sliceSize += 1;
+          if (sliceSize > lines[currentLine].length) {
+            sliceSize = 0;
+            currentLine = (currentLine + 1) % lines.length;
+            return lineChangeDelay;
+          }
+
+          return defaultDelay;
+        }
+
+        function runForever(func) {
+          const nextCallDelay = func();
+          window.setTimeout(() => runForever(func), nextCallDelay);
+        }
     };
 
 
