@@ -1,13 +1,13 @@
 .sentence-bar{
-    background-color: #FFEDF0;
+    background-color: #ffffff;
     max-width: 60%;
     padding: 10px 20px;
     margin: auto;
-    border-top: 1px solid lightpink;
-    border-right: 1px solid lightpink;
-    border-bottom: 1px solid lightpink;
-    border-left: 1px solid lightpink;
-    box-shadow: 0 10px 20px lightpink, 0 6px 6px rgba(0,0,0,0.23);
+    border-top: 1px solid #76758D;
+    border-right: 1px solid #76758D;
+    border-bottom: 1px solid #76758D;
+    border-left: 1px solid #76758D;
+    box-shadow: 0 3px 3px #76758D, 0 6px 6px rgba(0,0,0,0.23);
 }
 .correct_letter{
     color: black;

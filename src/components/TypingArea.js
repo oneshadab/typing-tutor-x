@@ -12,6 +12,7 @@ var paragraph;
 class TypingArea extends React.Component {
     constructor(props) {
         super(props);
+        this.dHolder("typing-field",["Welcome to Typing Test by Antor","Click Here and Start Typing!"],150)
         if(paragraphs["all_sentences"][0]["paragraph"]["shuffle"])
         {
             this.paragraph = shuffle(paragraphs["all_sentences"][0]["paragraph"])
@@ -115,6 +116,28 @@ class TypingArea extends React.Component {
 
     };
 
+    dHolder = function(id, texts, interval) {
+        var change, index, slicer, timeq;
+        index = 0;
+        slicer = 0;
+        return timeq = window.setTimeout(change = function() {
+            var delay, timerId;
+            delay = interval;
+            document.getElementById(id).placeholder = texts[index].slice(0, slicer) + '|';
+            if (slicer === texts[index].length) {
+                slicer = 0;
+                index += 1;
+                delay = 1000;
+                if (index === texts.length) {
+                    index = 0;
+                }
+            } else {
+                slicer += 1;
+            }
+            return timerId = window.setTimeout(change, delay);
+        }, interval);
+    };
+
 
     render() {
         return <div className={"container-fluid"}>
@@ -130,7 +153,6 @@ class TypingArea extends React.Component {
                                      written={this.state.typed_sentence || ""}/>
                         <div className={"text-center mt-3"}>
                             <input className={"default-sized-text custom-placeholder"}
-                                   placeholder={"Click Here And Start To Type"}
                                    disabled={this.state.is_input_disabled}
                                    id={"typing-field"}
                                    value={this.state.typed_sentence}
@@ -151,7 +173,7 @@ class TypingArea extends React.Component {
                     </div>
                 </div>
             </div>
-            <div id={"credit"} className={"font-weight-bold"}>
+            <div id={"credit"} className={""}>
                 Made With <span className={"red-text"}>❤</span> by <a target={"blank"} href={"https://github.com/antorkhan"}>Antor</a>
             </div>
         </div>;

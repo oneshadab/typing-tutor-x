@@ -1,6 +1,6 @@
 body {
-    background: linear-gradient(90deg, #FFE7F3 19px, transparent 1%) center,
-    linear-gradient(#FFE7F3 19px, transparent 1%) center, white;
+    background: linear-gradient(90deg, #FFF7FB 19px, transparent 1%) center,
+    linear-gradient(#FFF7FB 19px, transparent 1%) center, white;
     background-size: 22px 22px;
 
     /*padding: 0;*/
@@ -51,7 +51,7 @@ body {
     position: absolute;
     bottom: 8px;
     right: 16px;
-    font-size: 13px;
+    font-size: 10px;
 }
 
 
@@ -77,6 +77,30 @@ body {
     }
 
 }
+
+@media (max-width: 600px) {
+    .default-sized-text {
+
+        font-size: 24px;
+    }
+
+    #typing-field {
+        width: 85%;
+    }
+    .custom-placeholder::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+        color: pink;
+        font-size: 19px;
+        text-align: center;
+    }
+    .custom-placeholder::-moz-placeholder { /* Firefox 19+ */
+        color: pink;
+        font-size: 19px;
+        text-align: center;
+
+    }
+
+}
+
 
 @media (min-width: 1400px) {
     .default-sized-text {
