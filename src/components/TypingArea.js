@@ -12,7 +12,6 @@ var paragraph;
 class TypingArea extends React.Component {
     constructor(props) {
         super(props);
-        this.dHolder("typing-field",["Welcome to Typing Test by Antor","Click Here and Start Typing!"],150)
         if(paragraphs["all_sentences"][0]["paragraph"]["shuffle"])
         {
             this.paragraph = shuffle(paragraphs["all_sentences"][0]["paragraph"])
@@ -34,6 +33,9 @@ class TypingArea extends React.Component {
 
     }
 
+    componentDidMount() {
+        this.dHolder("typing-field",["Welcome to Typing Test by Antor","Click Here and Start Typing!"],150)
+    }
 
     //
     // componentDidMount() {
